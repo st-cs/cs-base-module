@@ -1,11 +1,11 @@
 <component name="libraryTable">
   <library name="Gradle: com.blankj:utilcodex:1.29.0@aar">
     <ANNOTATIONS>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/de2840880b8d290d643ade503be04d4e/jetified-utilcodex-1.29.0/annotations.zip!/" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/643a83f91fa3d1e2406dfe2fb33187dd/jetified-utilcodex-1.29.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/de2840880b8d290d643ade503be04d4e/jetified-utilcodex-1.29.0/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/de2840880b8d290d643ade503be04d4e/jetified-utilcodex-1.29.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/643a83f91fa3d1e2406dfe2fb33187dd/jetified-utilcodex-1.29.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/643a83f91fa3d1e2406dfe2fb33187dd/jetified-utilcodex-1.29.0/res" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.blankj/utilcodex/1.29.0/bb87f8f213d1ef70c9526b8739496edec1c77b1e/utilcodex-1.29.0-javadoc.jar!/" />
