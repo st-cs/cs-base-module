@@ -1,0 +1,114 @@
+
+apply plugin: 'com.android.library'
+apply plugin: 'com.google.protobuf'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+apply from: "../cs-ext.gradle"
+
+// kapt
+apply plugin: 'kotlin-kapt'
+kapt {
+    generateStubs = true
+}
+
+androidExtensions {
+    experimental = true
+}
+
+android {
+    compileSdkVersion _android.compileSdkVersion
+    buildToolsVersion _android.buildToolsVersion
+    protobuf {
+        //配置protoc编译器
+        protoc {
+            artifact = 'com.google.protobuf:protoc:3.6.1'
+        }
+        //这里配置生成目录，编译后会在build的目录下生成对应的java文件
+        generateProtoTasks {
+            all().each { task ->
+                task.builtins{
+                    remove java
+                }
+                task.builtins {
+                    java {}
+                    cpp{}
+                }
+            }
+        }
+        generatedFilesBaseDir = "$projectDir/src/generated"
+    }
+
+    defaultConfig {
+        minSdkVersion _android.minSdkVersion as Integer
+        targetSdkVersion _android.targetSdkVersion as Integer
+        versionCode _android.versionCode as Integer
+        versionName _android.versionName as String
+        vectorDrawables.useSupportLibrary = true
+        //指定room.schemaLocation生成的文件路径
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        alpha {
+            dimension "version"
+        }
+    }
+
+    sourceSets {
+        main {
+            main.java.srcDirs += 'src/main/kotlin'
+            jniLibs.srcDirs = ['libs']
+            //合并到宿主
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+            java {
+                srcDir 'src/main/java'
+            }
+            proto {
+                srcDir 'src/main/proto'
+                include '**/*.proto'
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+        disable 'MissingTranslation'
+        disable 'ExtraTranslation'
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+
+    repositories {
+        flatDir {
+            dirs    'libs'
+        }
+    }
+}
