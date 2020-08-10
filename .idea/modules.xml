@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cs-base-module.iml" filepath="$PROJECT_DIR$/.idea/modules/cs-base-module.iml" group="cs-base-module" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cs-base-module/cs-base-module-cs-base-module.iml" filepath="$PROJECT_DIR$/.idea/modules/cs-base-module/cs-base-module-cs-base-module.iml" group="cs-base-module/cs-base-module" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cs-base-module/cs-base-module.iml" filepath="$PROJECT_DIR$/.idea/modules/cs-base-module/cs-base-module.iml" group="cs-base-module/cs-base-module" />
     </modules>
   </component>
 </project>
